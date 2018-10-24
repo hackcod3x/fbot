@@ -2,13 +2,13 @@
 #issued on : 24 Oktober 2018
 #coded By ALIF PUTRA DARMAWAN
 waktu=$(date '+%Y-%m-%d %H:%M:%S')
-RED="\e[31m"
-GREEN="\e[32m"
-YELLOW="\e[33m"
-CYAN="\e[36m"
-LIGHTGREEN="\e[92m"
-MARGENTA="\e[35m"
-BLUE="\e[34m"
+RED="\e[41mRed"
+GREEN="\e[42mGreen"
+YELLOW="\e[43mYellow"
+CYAN="\e[46mCyan"
+LIGHTGREEN="\e[102mLight green"
+MARGENTA="\e[45mMagenta"
+BLUE="\e[44mBlue"
 BOLD="\e[1m"
 NOCOLOR="\e[0m"
 header(){
