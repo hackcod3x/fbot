@@ -1,45 +1,46 @@
 #!/bin/bash
-#issued on : 24 Oktober 2018
+#issued on : MEMEK
 #coded By ALIF PUTRA DARMAWAN
 waktu=$(date '+%Y-%m-%d %H:%M:%S')
-RED="\e[41mRed"
-GREEN="\e[42mGreen"
-YELLOW="\e[43mYellow"
-CYAN="\e[46mCyan"
-LIGHTGREEN="\e[102mLight green"
-MARGENTA="\e[45mMagenta"
-BLUE="\e[44mBlue"
+green="\e[1;32m"
+red="\e[1;31m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+CYAN="\e[36m"
+LIGHTGREEN="\e[92m"
+MARGENTA="\e[35m"
+BLUE="\e[34m"
 BOLD="\e[1m"
 NOCOLOR="\e[0m"
+clear
 header(){
 printf "${GREEN}
-         ##############################################
-         ##             FACEBOOK BOT MUX.            ##${BL$
-         ##          By : ALIF PUTRA DARMAWAN        ##${RE$
-         ##            HACK COD3X OFFICIAL.          ##${NO$
-         ##############################################${GR$
+         ######################################
+         ##        FACEBOOK TOOLS TERMUX.    ##${BLUE}
+         ##         ALIF PUTRA DARMAWAN      ##${RED}
+         ##              HACKCOD3X.          ##${NOCOLOR}
+	 ######################################${GREEN}
 "
 }
 rahim(){
     typena="$1"
     tokenfb="$2"
-    curlnya=$(curl -s "http://48.nakocoders.org/api/reaction/api.php?type=$1&tokenna=$2" -L)
-    kontenID=$(echo $curlnya | grep -Po '(?<=Success Like : )[^<span]*')
-    printf "${GREEN}$kontenID\n"
+    curl -s "http://48.nakocoders.org/api/reaction/api.php?type=$1&tokenna=$2"
 }
 header
-echo "Method : "
-echo "1. Bot Reaction"
-echo "2. Delete Status"
-echo "3. Delete Friends"
-echo "4. Bot Komen Copas Status"
-read -p "Choose Your Method : " method;
+echo "Masukan Pilihan : "
+echo "1. Auto Bot Reaction"
+echo "2. Auto Delete Status"
+echo "3. Auto Delete Friends"
+echo "4. Auto Bot Komen Copas Status Orang"
+read -p "Masukan Nomor Pilihan > " method;
 ##BOT REACTION
 if [ $method -eq 1 ]; then
     read -p "Masukan Type Reaction : " typena;
     read -p "Masukan Token FB : " tokenfb;
     for pwna in $typena; do
-        tatsumi $pwna $tokenfb
+        rahim $pwna $tokenfb
 done
 ##DELETE STATUS
 elif [ $method -eq "2" ]; then
@@ -48,9 +49,7 @@ elif [ $method -eq "2" ]; then
 		echo -ne "\n"
 		for i in $(seq 1 $limit):
   	do
-    	curlnya=$(curl -s "http://48.nakocoders.org/api/delstatus/api.php?tokenna=$token&jumlahna=$limit" -L)
-    	kontenID=$(echo $curlnya | grep -Po '(?<=Success Delete : )[^<span]*')
-    	printf "${GREEN}$kontenID\n"
+    	curl -s "http://48.nakocoders.org/api/delstatus/api.php?tokenna=$token&jumlahna=$limit"
 done
 ##DELETE FRIEND
 elif [ $method -eq "3" ]; then
@@ -59,10 +58,8 @@ elif [ $method -eq "3" ]; then
 		echo -ne "\n"
 		for i in $(seq 1 $limit):
   	do
-    	curlnya=$(curl -s "http://48.nakocoders.org/api/deletefriend/curl.php?tokenna=$tokenfb&jumlahna=$limit" -L)
-    	status=$(echo $curlnya | grep -Po '(?<=green"> )[^<]*')
-    	kontenID=$(echo $curlnya | grep -Po '(?<=Success Delete : )[^<span]*')
-    	printf "${GREEN}$kontenID\n"
+    	curl -s "http://48.nakocoders.org/api/deletefriend/curl.php?tokenna=$tokenfb&jumlahna=$limit"
+    	
     	
 done
 ##KOMEN STATUS
@@ -73,10 +70,6 @@ elif [ $method -eq "4" ]; then
 		echo -ne "\n"
 		for i in $(seq 1 $limit):
   	do
-    	curlnya=$(curl -s "http://48.nakocoders.org/api/komencopas/api.php?tokenna=$tokenfb&jumlah=$limit&target=$target" -L)
-    	status=$(echo $curlnya | grep -Po '(?<=green"> )[^<]*')
-    	kontenID=$(echo $curlnya | grep -Po '(?<=Success => )[^<span]*')
-    	printf "${GREEN}$kontenID\n"
-    	
+    	curl -s "http://48.nakocoders.org/api/komencopas/api.php?tokenna=$tokenfb&jumlah=$limit&target=$target"
 done
 fi
